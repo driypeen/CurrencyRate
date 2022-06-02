@@ -1,5 +1,7 @@
 package com.driypeen.CurrencyRate.service;
 
 public interface CurrencyService {
-    String getCurrentRate(String currency);
+    boolean hasRateIncreased(String currency);
+    Double getCurrentRate(String currency);
+    Double getPreviousRate(String currency);
 }
