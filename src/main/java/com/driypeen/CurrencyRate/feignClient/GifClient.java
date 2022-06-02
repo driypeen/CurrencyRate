@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = "gifClient", url = "${GIF_URL}")
 public interface GifClient {
     @RequestMapping(path = "/search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    String getRichGif(@RequestParam("api_key") String key,
-                      @RequestParam("q") String q,
-                      @RequestParam("offset") int offset,
-                      @RequestParam("limit") int limit);
+    String getGifByPhrase(@RequestParam("api_key") String key,
+                          @RequestParam("q") String phrase,
+                          @RequestParam("offset") int offset,
+                          @RequestParam("limit") int limit);
 }

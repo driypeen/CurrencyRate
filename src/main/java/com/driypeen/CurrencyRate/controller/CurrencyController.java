@@ -1,8 +1,10 @@
-package com.driypeen.CurrencyRate;
+package com.driypeen.CurrencyRate.controller;
 
+import com.driypeen.CurrencyRate.exception.NotFoundElementException;
 import com.driypeen.CurrencyRate.feignClient.CurrencyClient;
 import com.driypeen.CurrencyRate.service.CurrencyService;
 import com.driypeen.CurrencyRate.service.GifService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,12 +36,12 @@ public class CurrencyController {
 
     @GetMapping("/rate")
     @ResponseBody
-    private String compare(@RequestParam("currency") String currencyName) {
+    public String compare(@RequestParam("currency") String currencyName) {
         LOGGER.info("Get rate of {}", currencyName);
         if (currencyService.hasRateIncreased(currencyName)) {
-                return gifService.getGifByPhrase(GIF_UP);
+            return gifService.getGifByPhrase(GIF_UP);
         } else {
-                return gifService.getGifByPhrase(GIF_DOWN);
+            return gifService.getGifByPhrase(GIF_DOWN);
         }
     }
 }

@@ -16,7 +16,7 @@ public class GifServiceImpl implements GifService {
     }
 
     public String getGifByPhrase(String phrase) {
-        return gifClient.getRichGif(System.getenv("GIF_API_KEY"), phrase,
-                ThreadLocalRandom.current().nextInt(1, 5000), 1);
+        return gifClient.getGifByPhrase(System.getenv("GIF_API_KEY"), phrase,
+                ThreadLocalRandom.current().nextInt(1, 20), 1);
     }
 }

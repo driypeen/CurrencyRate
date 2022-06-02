@@ -13,13 +13,13 @@ import java.time.LocalDate;
 @FeignClient(value = "currencyClient", url = "${CURRENCY_URL}")
 public interface CurrencyClient {
     @RequestMapping(path = "/api/latest.json", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    String getLastRate(@RequestParam("app_id") String appId,
-                       @RequestParam("base") String baseCurrency,
-                       @RequestParam("symbols") String code);
+    String getCurrentRate(@RequestParam("app_id") String appId,
+                          @RequestParam("base") String baseCurrency,
+                          @RequestParam("symbols") String currency);
 
     @RequestMapping(path = "/api/historical/{date}.json", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     String getPreviousRate(@RequestParam("app_id") String appId,
                        @PathVariable("date") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date,
                        @RequestParam("base") String baseCurrency,
-                       @RequestParam("symbols") String code);
+                       @RequestParam("symbols") String currency);
 }
