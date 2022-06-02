@@ -8,8 +8,8 @@ COPY build/libs/CurrencyRate-0.0.1-SNAPSHOT.jar /app/currency-rate.jar
 
 ENV BASE_CURRENCY=USD
 ENV CURRENCY_URL=https://openexchangerates.org
-ENV CURRENCY_APP_ID=c63762c92b85443dbae71111c308eada
+ENV CURRENCY_APP_ID=
 ENV GIF_URL=https://api.giphy.com/v1/gifs
-ENV GIF_API_KEY=9Wro3YcoLw9TVM35xfwE0l1aZbxZsomJ
+ENV GIF_API_KEY=
 
 CMD ["java", "-jar", "/app/currency-rate.jar"]
