@@ -40,3 +40,11 @@ dependencyManagement {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+test {
+	environment "BASE_CURRENCY", "USD"
+	environment "CURRENCY_URL", "https://openexchangerates.org"
+	environment "CURRENCY_APP_ID", "c63762c92b85443dbae71111c308eada"
+	environment "GIF_URL", "https://api.giphy.com/v1/gifs"
+	environment "GIF_API_KEY", "9Wro3YcoLw9TVM35xfwE0l1aZbxZsomJ"
+}
